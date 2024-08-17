@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Baloise Design System Webjar-App</title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@baloise/ds-styles/css/all.css" />
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@baloise/ds-core/dist/baloise-design-system/baloise-design-system.esm.js"></script>
+	<script nomodule src="https://cdn.jsdelivr.net/npm/@baloise/ds-core/dist/baloise-design-system/baloise-design-system.js"></script>
+	<script src="hyperscript.org/0.9.12/_hyperscript.js"></script>
+</head>
+<body>
+<bal-app>
+	<main class="container mt-xx-large" _="init set $modal to the first <bal-modal/> in <main/>"
+	>
+		<bal-heading>Modal</bal-heading>
+
+		<!-- Open via event: -->
+		<bal-button _="on click send open_dialog_requested to $modal">
+			 Open Modal (via event)
+		</bal-button>
+
+		<!-- Open via calling open() directly on modal element: -->
+		<bal-button _="on click open() on $modal">
+			Open Modal (direct call)
+		</bal-button>
+		<!-- Open via event: -->
+		<bal-modal _="
+			on open_dialog_requested open() me
+			on balModalWillDismiss log event
+			on 'app_modal-ok' log event.detail.payload
+			">
+			<bal-modal-header>Modal Title</bal-modal-header>
+			<bal-modal-body>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing?</p>
+				<bal-button-group position="right" reverse="true">
+					<bal-button color="text" _="on click dismiss() on $modal">
+						Cancel
+					</bal-button>
+					<bal-button color="primary" _="
+						on click send 'app_modal-ok'(payload: {name: 'Bart'}) to me
+						dismiss() on $modal
+						"
+					>
+						Okay
+					</bal-button>
+				</bal-button-group>
+			</bal-modal-body>
+		</bal-modal>
+	</main>
+</bal-app>
+
+
+</body>
+</html>
+

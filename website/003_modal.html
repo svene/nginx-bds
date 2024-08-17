@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Baloise Design System Webjar-App</title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@baloise/ds-styles/css/all.css" />
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@baloise/ds-core/dist/baloise-design-system/baloise-design-system.esm.js"></script>
+	<script nomodule src="https://cdn.jsdelivr.net/npm/@baloise/ds-core/dist/baloise-design-system/baloise-design-system.js"></script>
+	<script type="module" src="003_modal.js" defer></script>
+</head>
+<body>
+<bal-app>
+	<main class="container mt-xx-large">
+		<bal-heading>Modal</bal-heading>
+		<bal-button id="openBtn">Open Modal</bal-button>
+		<bal-modal id="modal">
+			<bal-modal-header>Modal Title</bal-modal-header>
+			<bal-modal-body>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing?</p>
+				<bal-button-group position="right" reverse="true">
+					<bal-button id="cancelBtn" color="text">Cancel</bal-button>
+					<bal-button id="okBtn" color="primary">Okay</bal-button>
+				</bal-button-group>
+			</bal-modal-body>
+		</bal-modal>
+	</main>
+</bal-app>
+
+
+</body>
+</html>
+

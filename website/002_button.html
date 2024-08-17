@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Baloise Design System Webjar-App</title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@baloise/ds-styles/css/all.css" />
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@baloise/ds-core/dist/baloise-design-system/baloise-design-system.esm.js"></script>
+	<script nomodule src="https://cdn.jsdelivr.net/npm/@baloise/ds-core/dist/baloise-design-system/baloise-design-system.js"></script>
+	<script type="module" src="002_button.js" defer></script>
+</head>
+<body>
+<bal-app>
+	<main class="container mt-xx-large">
+		<bal-heading>Button</bal-heading>
+
+		<bal-card>
+			<bal-card-title bold="true" color="blue">Click Handler</bal-card-title>
+			<bal-card-content>
+
+				<div class="grid is-multiline">
+					<!-- click listener: -->
+					<div class="col is-4">
+						<bal-button id="listenerButton">with click listener</bal-button>
+					</div>
+					<div class="col is-8">
+						<bal-text>click listener attached in JS</bal-text>
+					</div>
+
+					<!-- click attribute: -->
+					<div class="col is-4">
+						<bal-button id="btnClickAttr" onclick="app.ccc()">with click attribute</bal-button> <!-- TODO: how to pass the event to ccc() ? -->
+					</div>
+					<div class="col is-8">
+						<bal-text>uses onclick html attribute. TODO: how to pass the event to ccc() ? </bal-text>
+					</div>
+
+					<!-- BDS link button: -->
+					<div class="col is-4">
+						<bal-button id="linkBtn" color="link">Link</bal-button>
+					</div>
+					<div class="col is-8">
+						<bal-text>BDS Link Button. Should emit balNavigate event, but does not</bal-text>
+					</div>
+				</div>
+
+				<bal-text id="output">output: -</bal-text>
+			</bal-card-content>
+		</bal-card>
+	</main>
+</bal-app>
+
+
+</body>
+</html>
+
