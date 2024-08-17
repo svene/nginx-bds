@@ -1,0 +1,15 @@
+version: '3'
+services:
+  nginx-bds:
+    build: .
+    container_name: nginx-bds
+    image: nginx:stable-perl
+    volumes:
+      - ./website:/usr/share/nginx/html
+    ports:
+      - "8088:80"
+      - "443:443"
+    environment:
+    - SVEN=hi
+#volumes:
+#  website:

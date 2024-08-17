@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Baloise Design System Webjar-App</title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@baloise/ds-styles/css/all.css" />
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@baloise/ds-core/dist/baloise-design-system/baloise-design-system.esm.js"></script>
+	<script nomodule src="https://cdn.jsdelivr.net/npm/@baloise/ds-core/dist/baloise-design-system/baloise-design-system.js"></script>
+	<script type="module" src="main.js" defer></script>
+</head>
+<body>
+<bal-app class="has-sticky-footer">
+	<header>
+		<bal-navbar>
+			<bal-navbar-brand href="/" target="_blank">Design System</bal-navbar-brand>
+		</bal-navbar>
+	</header>
+	<bal-stage color="green" size="small">
+		<bal-stage-body>
+			<bal-heading>Welcome to the</bal-heading>
+			<bal-heading subtitle>Baloise Design System</bal-heading>
+		</bal-stage-body>
+	</bal-stage>
+	<main class="container mt-xx-large">
+		<ul>
+			<li><a href="001_accordion.html">Accordion</a></li>
+			<li><a href="002_button.html">Button</a></li>
+			<li><a href="003_modal.html">Modal</a></li>
+			<li><a href="003_modal_surreal.html">Modal LoB (surreal.js)</a></li>
+			<li><a href="003_modal_hyperscript.html">Modal LoB (hyperscript.js)</a></li>
+			<li><a href="900_smoketest.html">Smoketest</a></li>
+		</ul>
+
+	</main>
+	<bal-footer>
+		<!-- Footer content -->
+	</bal-footer>
+</bal-app>
+
+
+</body>
+</html>
+
