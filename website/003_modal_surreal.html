@@ -42,7 +42,8 @@
 					<bal-button color="primary">
 						<script>
 							me().on("click", ev => {
-								// Unfortnuately data is not used by BDS-modal in html/js mode:
+								// TODO-DS:
+								// Unfortunately data is not used by BDS-modal in html/js mode:
 								// modal.dismiss({name: 'Bart'}, 'role');
 								// Therefore a custom event will be used here as a workaround:
 								me(ev).send('app_modal-ok', { detail: {name: 'Bart'} });
