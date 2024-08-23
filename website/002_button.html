@@ -8,6 +8,7 @@
 	<script type="module" src="https://cdn.jsdelivr.net/npm/@baloise/ds-core/dist/baloise-design-system/baloise-design-system.esm.js"></script>
 	<script nomodule src="https://cdn.jsdelivr.net/npm/@baloise/ds-core/dist/baloise-design-system/baloise-design-system.js"></script>
 	<script type="module" src="002_button.js" defer></script>
+	<script src="surreal.me/1.2.0/surreal.min.js"></script>
 </head>
 <body>
 <bal-app>
@@ -31,7 +32,7 @@
 			</bal-card-content>
 		</bal-card>
 
-		<bal-card>
+		<bal-card class="mb-small">
 			<bal-card-title bold="true" color="blue">onclick EventListener in JS-file</bal-card-title>
 			<bal-card-content>
 
@@ -54,6 +55,34 @@
 				</div>
 
 				<bal-text id="output2">output: -</bal-text>
+			</bal-card-content>
+		</bal-card>
+
+		<bal-card>
+			<bal-card-title bold="true" color="blue">Native buttons</bal-card-title>
+			<bal-card-content>
+
+				<div class="grid is-multiline">
+					<!-- click listener: -->
+					<div class="col is-4">
+						<div id="jjj"></div>
+						<button class="button is-primary">
+							<script>
+								me().on("click", (ev) => {
+									console.log('nativeButton: event: ', ev);
+									any('#output3').run(it => it.innerText = 'output: click event from nativeButton');
+								});
+							</script>
+							Primary
+						</button>
+					</div>
+					<div class="col is-8">
+						<bal-text>LoB listener</bal-text>
+					</div>
+
+				</div>
+
+				<bal-text id="output3">output: -</bal-text>
 			</bal-card-content>
 		</bal-card>
 	</main>
