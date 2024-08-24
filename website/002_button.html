@@ -15,6 +15,7 @@
 	<main class="container mt-xx-large">
 		<bal-heading>Button</bal-heading>
 
+		<!-- onclick attribute: -->
 		<bal-card class="mb-small">
 			<bal-card-title bold="true" color="blue">Event Handler Attributes (event handlers as content attributes)
 				<bal-button color="link" target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes#event_handler_attributes">See MDN</bal-button>
@@ -22,7 +23,6 @@
 			<bal-card-subtitle>(discouraged by MDN)</bal-card-subtitle>
 			<bal-card-content>
 				<div class="grid is-multiline">
-					<!-- click attribute: -->
 					<div class="col is-4">
 						<bal-button id="btnClickAttr" onclick="app.handleClickFromAttribute(this, event)">Click Me</bal-button> <!-- TODO: how to pass the event to ccc() ? -->
 					</div>
@@ -32,12 +32,12 @@
 			</bal-card-content>
 		</bal-card>
 
+		<!-- click listener: -->
 		<bal-card class="mb-small">
 			<bal-card-title bold="true" color="blue">onclick EventListener in JS-file</bal-card-title>
 			<bal-card-content>
 
 				<div class="grid is-multiline">
-					<!-- click listener: -->
 					<div class="col is-4">
 						<bal-button id="listenerButton">Click Me</bal-button>
 					</div>
@@ -58,14 +58,13 @@
 			</bal-card-content>
 		</bal-card>
 
+		<!-- click listener with surreal.js: -->
 		<bal-card>
 			<bal-card-title bold="true" color="blue">Native buttons</bal-card-title>
 			<bal-card-content>
 
 				<div class="grid is-multiline">
-					<!-- click listener: -->
 					<div class="col is-4">
-						<div id="jjj"></div>
 						<button class="button is-primary">
 							<script>
 								me().on("click", (ev) => {
