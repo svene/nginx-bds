@@ -8,7 +8,6 @@
 	<script type="module" src="https://cdn.jsdelivr.net/npm/@baloise/ds-core/dist/baloise-design-system/baloise-design-system.esm.js"></script>
 	<script nomodule src="https://cdn.jsdelivr.net/npm/@baloise/ds-core/dist/baloise-design-system/baloise-design-system.js"></script>
 	<script type="module" src="002_button.js" defer></script>
-	<script src="surreal.me/1.2.0/surreal.min.js"></script>
 </head>
 <body>
 <bal-app>
@@ -26,9 +25,11 @@
 					<div class="col is-4">
 						<bal-button id="btnClickAttr" onclick="app.handleClickFromAttribute(this, event)">Click Me</bal-button> <!-- TODO: how to pass the event to ccc() ? -->
 					</div>
+					<div class="col is-8">
+						<bal-text id="output1"></bal-text>
+					</div>
 				</div>
 
-				<bal-text id="output1">output: -</bal-text>
 			</bal-card-content>
 		</bal-card>
 
@@ -42,7 +43,7 @@
 						<bal-button id="listenerButton">Click Me</bal-button>
 					</div>
 					<div class="col is-8">
-						<bal-text>click listener attached in JS</bal-text>
+						<bal-text id="output2a"></bal-text>
 					</div>
 
 					<!-- BDS link button: -->
@@ -50,38 +51,27 @@
 						<bal-button id="linkBtn" color="link">Link</bal-button>
 					</div>
 					<div class="col is-8">
-						<bal-text>BDS Link Button. Should emit balNavigate event, but does not</bal-text>
+						<bal-text id="output2b"></bal-text>
 					</div>
 				</div>
-
-				<bal-text id="output2">output: -</bal-text>
 			</bal-card-content>
 		</bal-card>
 
-		<!-- click listener with surreal.js: -->
+		<!-- native button, click listener with surreal.js: -->
 		<bal-card>
 			<bal-card-title bold="true" color="blue">Native buttons</bal-card-title>
 			<bal-card-content>
 
 				<div class="grid is-multiline">
 					<div class="col is-4">
-						<button class="button is-primary">
-							<script>
-								me().on("click", (ev) => {
-									console.log('nativeButton: event: ', ev);
-									any('#output3').run(it => it.innerText = 'output: click event from nativeButton');
-								});
-							</script>
-							Primary
+						<button id="nativeListenerButton" class="button is-primary">
+							Click Me
 						</button>
 					</div>
 					<div class="col is-8">
-						<bal-text>LoB listener</bal-text>
+						<bal-text id="output3"></bal-text>
 					</div>
-
 				</div>
-
-				<bal-text id="output3">output: -</bal-text>
 			</bal-card-content>
 		</bal-card>
 	</main>
