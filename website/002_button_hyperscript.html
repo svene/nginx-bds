@@ -7,58 +7,59 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@baloise/ds-styles/css/all.css" />
 	<script type="module" src="https://cdn.jsdelivr.net/npm/@baloise/ds-core/dist/baloise-design-system/baloise-design-system.esm.js"></script>
 	<script nomodule src="https://cdn.jsdelivr.net/npm/@baloise/ds-core/dist/baloise-design-system/baloise-design-system.js"></script>
-	<script src="surreal.me/1.2.0/surreal.min.js"></script>
+	<script src="hyperscript.org/0.9.12/_hyperscript.js"></script>
 </head>
 <body>
 <bal-app>
 	<main class="container mt-xx-large">
-		<bal-heading>Button, LoB with surreal.js</bal-heading>
+		<bal-heading>Button, LoB with hyperscript</bal-heading>
 
 		<!-- bal-button element: -->
-		<bal-card id="card1" class="mb-small">
+		<bal-card class="mb-small">
 			<bal-card-title bold="true" color="blue">bal-button element</bal-card-title>
 			<bal-card-content>
 
 				<div class="grid is-multiline">
 					<div class="col is-4">
-						<bal-button id="listenerButton">
-							<script>
-								me().on("click", (ev) => {
-									console.log('bal-button: event: ', ev);
-									any('#card1 bal-text').run(it => it.innerText = 'click event from bal-button');
-									setTimeout(() => any('#card1 bal-text').run(it => it.innerText = ''), 1000);
-								});
-							</script>
+						<bal-button _="
+							on click log 'bal-button: event: ', event
+							send button1 to <bal-text/> in closest <bal-card-content/>
+							"
+						>
 							Click Me
 						</bal-button>
 					</div>
 					<div class="col is-8">
-						<bal-text></bal-text>
+						<bal-text _="
+							on button1 put 'click event from bal-button' into me
+							wait 1s
+							put '' into me
+						"></bal-text>
 					</div>
 				</div>
 			</bal-card-content>
 		</bal-card>
 
 		<!-- native button: -->
-		<bal-card id="card2">
+		<bal-card>
 			<bal-card-title bold="true" color="blue">Native buttons</bal-card-title>
 			<bal-card-content>
 
 				<div class="grid is-multiline">
 					<div class="col is-4">
-						<button class="button is-primary">
-							<script>
-								me().on("click", (ev) => {
-									console.log('nativeButton: event: ', ev);
-									any('#card2 bal-text').run(it => it.innerText = 'click event from nativeButton');
-									setTimeout(() => any('#card2 bal-text').run(it => it.innerText = ''), 1000);
-								});
-							</script>
+						<button class="button is-primary" _="
+							on click log 'native button: event: ', event
+							send button2 to <bal-text/> in closest <bal-card-content/>
+							">
 							Click Me
 						</button>
 					</div>
 					<div class="col is-8">
-						<bal-text></bal-text>
+						<bal-text _="
+							on button2 put 'click event from  native button' into me
+							wait 1s
+							put '' into me
+						"></bal-text>
 					</div>
 
 				</div>
