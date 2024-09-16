@@ -17,6 +17,9 @@ okBtn.addEventListener('click', (event) => {
 modal.addEventListener('balModalWillDismiss', (event) => {
 	console.log('balModalWillDismiss', event);
 });
+modal.addEventListener('balModalWillPresent', (event) => {
+	console.log('balModalWillPresent', event);
+});
 modal.addEventListener('app_modal-ok', (event) => {
 	console.log('app_modal-ok', event.detail);
 });
