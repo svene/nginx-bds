@@ -39,31 +39,6 @@
 			</bal-card-content>
 		</bal-card>
 
-		<!-- native button: -->
-		<bal-card id="card2">
-			<bal-card-title bold="true" color="blue">Native buttons</bal-card-title>
-			<bal-card-content>
-
-				<div class="grid is-multiline">
-					<div class="col is-4">
-						<button class="button is-primary">
-							<script>
-								me().on("click", (ev) => {
-									console.log('nativeButton: event: ', ev);
-									any('#card2 bal-text').run(it => it.innerText = 'click event from nativeButton');
-									setTimeout(() => any('#card2 bal-text').run(it => it.innerText = ''), 1000);
-								});
-							</script>
-							Click Me
-						</button>
-					</div>
-					<div class="col is-8">
-						<bal-text></bal-text>
-					</div>
-
-				</div>
-			</bal-card-content>
-		</bal-card>
 	</main>
 </bal-app>
 
