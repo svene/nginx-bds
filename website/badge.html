@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Baloise Design System Webjar-App</title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@baloise/ds-styles/css/all.css" />
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@baloise/ds-core/dist/baloise-design-system/baloise-design-system.esm.js"></script>
+	<script nomodule src="https://cdn.jsdelivr.net/npm/@baloise/ds-core/dist/baloise-design-system/baloise-design-system.js"></script>
+	<script src="hyperscript.org/0.9.12/_hyperscript.js"></script>
+</head>
+<body>
+<bal-app>
+	<main class="container mt-xx-large">
+		<bal-heading>Badge webcomponent</bal-heading>
+
+		<!-- bal-button element: -->
+		<bal-card class="mb-small">
+			<bal-card-title bold="true" color="blue">bal-button element</bal-card-title>
+			<bal-card-content>
+				<bal-stack direction="vertical">
+					<bal-badge>42</bal-badge>
+					<bal-badge color="success" icon="check">42</bal-badge>
+					<bal-badge color="green" size="large" icon="check">1</bal-badge>
+
+				</bal-stack>
+
+			</bal-card-content>
+		</bal-card>
+
+		<bal-card class="mb-small">
+			<bal-badge position="card">42</bal-badge>
+			<bal-card-content>
+				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+			</bal-card-content>
+		</bal-card>
+
+		<bal-card class="mb-small">
+			<bal-card-content>
+				<bal-button>
+					<bal-badge position="button">42</bal-badge>
+					Click me lksjdflkjsdajflsdkfjlsdkj
+				</bal-button>
+			</bal-card-content>
+		</bal-card>
+
+		<bal-card class="mb-small">
+			<bal-card-content>
+				<bal-tabs interface="tabs" value="tab-a">
+					<bal-badge position="tabs">42</bal-badge>
+					<bal-tab-item value="tab-a" label="Tab A">
+						badge with position 'tabs' appears right to the card. Hmm...
+					</bal-tab-item>
+					<bal-tab-item value="tab-b" label="Tab B" bubble="">Content of Tab B</bal-tab-item>
+				</bal-tabs>
+			</bal-card-content>
+		</bal-card>
+
+	</main>
+</bal-app>
+
+
+</body>
+</html>
+
