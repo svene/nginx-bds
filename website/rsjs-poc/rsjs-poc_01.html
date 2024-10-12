@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Baloise Design System Webjar-App</title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@baloise/ds-styles/css/all.css" />
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@baloise/ds-core/dist/baloise-design-system/baloise-design-system.esm.js"></script>
+	<script nomodule src="https://cdn.jsdelivr.net/npm/@baloise/ds-core/dist/baloise-design-system/baloise-design-system.js"></script>
+	<script type="module" src="rsjs-poc_01.js" defer></script>
+</head>
+<body>
+<bal-app>
+	<main class="container mt-xx-large">
+		<bal-heading>RSJS PoC: Step one</bal-heading>
+		<p>
+			PoC goal: instead of having to use webcomponent bal-icon try to use the original html elements
+			rendered by that webcomponent.
+			Attach the behavior of the webcomponent through a script.
+			A discoverer-script searches for elements with certain attributes (RSJS style) and
+			attaches the original behavior.
+			(open: is it possible to reuse the webcomponent behavior ?)
+		</p>
+		<p>
+			Example
+			&lt;bal-icon svg="balIconConsultant"...&gt;
+			to
+			&lt;div data-icon-svg="balIconConsultant" ...&gt;
+		</p>
+		<p>
+			Script discovers elements with certain attributes and sets properties.
+			This is in contrast to set the original attributes on the webcomponents.
+		</p>
+
+		<bal-card class="mb-small">
+			<bal-card-title bold="true" color="blue">standalone icons</bal-card-title>
+			<bal-card-content>
+				<bal-stack direction="vertical">
+					<bal-icon data-icon-svg="balIconConsultant" size="large" svg="" class="mt-large"></bal-icon>
+					<bal-icon data-icon-svg="balBrandIconTheftCarGreen" size="large" svg="" class="mt-large"></bal-icon>
+				</bal-stack>
+
+			</bal-card-content>
+		</bal-card>
+
+
+	</main>
+</bal-app>
+
+
+
+</body>
+</html>
+
