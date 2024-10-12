@@ -54,6 +54,26 @@
 						<div data-icon-svg="balIconClose" class="bal-icon__inner"></div>
 					</div>
 					<!-- END -->
+					<!-- PoC-NOTES:
+					The three lines above could be generate on the server.
+					The server code could have a function/component code where the 3 lines
+					are a template taking parameters.
+
+					General procedure to convert the webcomponent to functions:
+					- inspect code of webcompoent (e.g. bal-icon.tsx)
+					- create the equivalent of the 3 lines above
+					- create the backend-template for it
+
+					Advantages:
+					- no need for JS (modificationListener...)
+					- API for template has a clear interface
+
+					Disadvantages:
+					- "backend-component" needs to be implemented for each backend-technology
+
+					Other ideas:
+					- use <template> on the client
+					-->
 
 				</bal-stack>
 
