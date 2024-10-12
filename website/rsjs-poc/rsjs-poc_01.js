@@ -9,7 +9,7 @@ const brandIcons = { // unfortunately BDS does not provide a map for brand-icons
 	balBrandIconTheftCarGreen: balBrandIconTheftCarGreen,
 }
 
-const processIcons = () => {
+const processBalIcons = () => {
 	document?.body?.querySelectorAll(`bal-icon[data-icon-svg]:not([data-rsjs-processed])`).forEach(node => {
 		const attrValue = node.getAttribute('data-icon-svg');
 		node.svg = defaultIcons[attrValue] || brandIcons[attrValue];
@@ -17,14 +17,17 @@ const processIcons = () => {
 	});
 }
 
-const myObserver = new MutationObserver((mutationList, observer) => {
-	processIcons();
-});
+new MutationObserver((mutationList, observer) => processBalIcons())
+	.observe(document.querySelector('body'), {subtree: true, childList: true});
 
-myObserver.observe(
-	document.querySelector('body'),
-	{
-		subtree: true,
-		childList: true,
-	}
-);
+const processDivIcons = () => {
+	document?.body?.querySelectorAll(`div[data-icon-svg]:not([data-rsjs-processed])`).forEach(node => {
+		console.log('processing')
+		const attrValue = node.getAttribute('data-icon-svg');
+		node.innerHTML = defaultIcons[attrValue] || brandIcons[attrValue];
+		node.setAttribute('data-rsjs-processed', '')
+	});
+}
+
+new MutationObserver((mutationList, observer) => processDivIcons())
+	.observe(document.querySelector('body'), {subtree: true, childList: true});

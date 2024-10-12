@@ -12,7 +12,7 @@
 <body>
 <bal-app>
 	<main class="container mt-xx-large">
-		<bal-heading>RSJS PoC: Step one</bal-heading>
+		<bal-heading>RSJS PoC</bal-heading>
 		<p>
 			PoC goal: instead of having to use webcomponent bal-icon try to use the original html elements
 			rendered by that webcomponent.
@@ -33,12 +33,28 @@
 		</p>
 
 		<bal-card class="mb-small">
-			<bal-card-title bold="true" color="blue">standalone icons</bal-card-title>
+			<bal-card-title bold="true" color="blue">&lt;bal-icon data-icon-svg="..."&gt;</bal-card-title>
 			<bal-card-content>
 				<bal-stack direction="vertical">
 					<bal-icon data-icon-svg="balIconClose" class="mt-large"></bal-icon>
 					<bal-icon data-icon-svg="balIconConsultant" class="mt-large"></bal-icon>
 					<bal-icon data-icon-svg="balBrandIconTheftCarGreen" class="mt-large"></bal-icon>
+				</bal-stack>
+
+			</bal-card-content>
+		</bal-card>
+
+		<bal-card class="mb-small">
+			<bal-card-title bold="true" color="blue">&lt;div data-icon-svg="..."&gt;</bal-card-title>
+			<bal-card-content>
+				<bal-stack direction="vertical">
+
+					<!-- START: equivalent of <bal-icon svg="balIconClose" class="mt-large">	-->
+					<div class="bal-icon mt-large bal-icon bal-icon--is-primary">
+						<div data-icon-svg="balIconClose" class="bal-icon__inner"></div>
+					</div>
+					<!-- END -->
+
 				</bal-stack>
 
 			</bal-card-content>
