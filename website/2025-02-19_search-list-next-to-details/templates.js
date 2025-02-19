@@ -20,11 +20,16 @@ export function formTemplate(contact) {
 
 export function advisorResult(searchString, resultData) {
     let result = '';
-    // result += `<bal-list border="true" id="search-result">`;
     resultData.forEach(it => {
-
         result += `
-            <bal-list-item style="cursor: pointer" onclick="alert('TODO: Show details for Advisor 1')">
+            <bal-list-item
+              style="cursor: pointer"
+              hx-trigger="click"
+              hx-post="/advisordetails"
+              hx-vals='{"advisorid": "${it.nr}"}'
+              hx-target="#search-result"
+              hx-swap="innerHTML"
+              >
                 <bal-list-item-content>
                     <bal-list-item-title hx-get="">${it.nr} - ${it.name}</bal-list-item-title>
                 </bal-list-item-content>
@@ -34,30 +39,38 @@ export function advisorResult(searchString, resultData) {
             </bal-list-item>
         `;
     });
-    // result += `</bal-list>`;
     return result;
-/*
-    return `
-				<bal-list border="true" id="search-result">
-					<bal-list-item style="cursor: pointer" onclick="alert('TODO: Show details for Advisor 1')">
-						<bal-list-item-content>
-							<bal-list-item-title hx-get="">123456 - Advisor 1</bal-list-item-title>
-						</bal-list-item-content>
-						<bal-list-item-icon right="true">
-							<bal-icon name="nav-go-right" size="x-small"></bal-icon>
-						</bal-list-item-icon>
-					</bal-list-item>
-					<bal-list-item  style="cursor: pointer" onclick="alert('TODO: Show details for Advisor 2')">
-						<bal-list-item-content>
-							<bal-list-item-title>
-								876543 - Advisor 2
-							</bal-list-item-title>
-						</bal-list-item-content>
-						<bal-list-item-icon right="true">
-							<bal-icon name="nav-go-right" size="x-small"></bal-icon>
-						</bal-list-item-icon>
-					</bal-list-item>
-				</bal-list>
+}
+export function advisorDetails(advisorid, detailsData) {
+    let result = '';
+    result += `
+<table class="table w-full is-striped is-hoverable p-none">
+  <thead>
+    <tr>
+    <th>Billing Date</th>
+    <th>Portfolio Number</th>
+    <th>Name</th>
+    <th>Brokerage Fees</th>
+    <th>Account Statement</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
 `;
-*/
+        detailsData.forEach(it => {
+            result += `
+    <tr>
+      <td>${it.billingDate}</td>
+      <td>${it.nr}</td>
+      <td>${it.name}</td>
+      <td>${it.brokerageFees}</td>
+      <td>${it.accountStatement}</td>
+    </tr>
+        `;
+    });
+  result += `
+      </tbody>
+      </table>
+    `;
+    return result;
 }
