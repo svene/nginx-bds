@@ -7,6 +7,10 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@baloise/ds-styles/css/all.css" />
 	<script type="module" src="https://cdn.jsdelivr.net/npm/@baloise/ds-core/dist/baloise-design-system/baloise-design-system.esm.js"></script>
 	<script nomodule src="https://cdn.jsdelivr.net/npm/@baloise/ds-core/dist/baloise-design-system/baloise-design-system.js"></script>
+<!--	<script src="https://unpkg.com/htmx.org@2.0.4"></script>-->
+	<script src="lib/htmx/2.0.4/htmx.js"></script>
+	<script src="https://unpkg.com/sinon@19.0.2/pkg/sinon.js"></script>
+	<script src="main.js" type="module" defer></script>
 </head>
 <body>
 <bal-app>
@@ -14,36 +18,23 @@
 		<bal-heading>Use Case: search, list, next-icon to details-list</bal-heading>
 		<bal-card>
 			<bal-card-content>
-				<bal-form>
-					<bal-field>
-						<bal-field-label>Advisor-Search</bal-field-label>
-						<bal-field-control>
-							<bal-input placeholder="Placeholder"></bal-input>
-						</bal-field-control>
-					</bal-field>
-				</bal-form>
+				<form>
+					<div class="field">
+						<label class="label">Name</label>
+						<div class="control">
+							<input class="input"
+								   name="searchvalue"
+								   hx-trigger="input changed delay:500ms, keyup[key=='Enter']"
+								   hx-post="/searchadvisor"
+								   hx-target="#search-result"
+								   hx-swap="innerHtml"
+							>
+						</div>
+					</div>
+				</form>
 
 				<!-- Search Results: -->
-				<bal-list border="true">
-					<bal-list-item style="cursor: pointer" onclick="alert('TODO: Show details for Advisor 1')">
-						<bal-list-item-content>
-							<bal-list-item-title>123456 - Advisor 1</bal-list-item-title>
-						</bal-list-item-content>
-						<bal-list-item-icon right="true">
-							<bal-icon name="nav-go-right" size="x-small"></bal-icon>
-						</bal-list-item-icon>
-					</bal-list-item>
-					<bal-list-item  style="cursor: pointer" onclick="alert('TODO: Show details for Advisor 2')">
-						<bal-list-item-content>
-							<bal-list-item-title>
-								876543 - Advisor 2
-							</bal-list-item-title>
-						</bal-list-item-content>
-						<bal-list-item-icon right="true">
-							<bal-icon name="nav-go-right" size="x-small"></bal-icon>
-						</bal-list-item-icon>
-					</bal-list-item>
-				</bal-list>
+				<bal-list id="search-result"></bal-list>
 
 
 
