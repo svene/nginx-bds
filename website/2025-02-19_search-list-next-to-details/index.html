@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Baloise Design System Demos</title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@baloise/ds-styles/css/all.css" />
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@baloise/ds-core/dist/baloise-design-system/baloise-design-system.esm.js"></script>
+	<script nomodule src="https://cdn.jsdelivr.net/npm/@baloise/ds-core/dist/baloise-design-system/baloise-design-system.js"></script>
+</head>
+<body>
+<bal-app>
+	<main class="container mt-xx-large">
+		<bal-heading>Use Case: search, list, next-icon to details-list</bal-heading>
+		<bal-card>
+			<bal-card-content>
+				<bal-form>
+					<bal-field>
+						<bal-field-label>Advisor-Search</bal-field-label>
+						<bal-field-control>
+							<bal-input placeholder="Placeholder"></bal-input>
+						</bal-field-control>
+					</bal-field>
+				</bal-form>
+
+				<!-- Search Results: -->
+				<bal-list border="true">
+					<bal-list-item style="cursor: pointer" onclick="alert('TODO: Show details for Advisor 1')">
+						<bal-list-item-content>
+							<bal-list-item-title>123456 - Advisor 1</bal-list-item-title>
+						</bal-list-item-content>
+						<bal-list-item-icon right="true">
+							<bal-icon name="nav-go-right" size="x-small"></bal-icon>
+						</bal-list-item-icon>
+					</bal-list-item>
+					<bal-list-item  style="cursor: pointer" onclick="alert('TODO: Show details for Advisor 2')">
+						<bal-list-item-content>
+							<bal-list-item-title>
+								876543 - Advisor 2
+							</bal-list-item-title>
+						</bal-list-item-content>
+						<bal-list-item-icon right="true">
+							<bal-icon name="nav-go-right" size="x-small"></bal-icon>
+						</bal-list-item-icon>
+					</bal-list-item>
+				</bal-list>
+
+
+
+			</bal-card-content>
+		</bal-card>
+	</main>
+</bal-app>
+
+
+</body>
+</html>
+
