@@ -2,8 +2,8 @@
 // Fake Server Side Code
 //=========================================================================
 
-import {advisorDetails, advisorResult} from './templates.js';
-import { createServer, onGet, onPost } from './server_infrastructure.js';
+import {advisorDetails, advisorResult, initial} from './templates.js';
+import { createServer, onPost } from './server_infrastructure.js';
 
 const advisors = [
     {nr: '123456', name: 'Advisor 1'},
@@ -18,6 +18,9 @@ const advisorsWithDetails = [
 
 window.server = createServer();
 
+onPost("/start", function(request, params){
+    return initial();
+});
 onPost("/searchadvisor", function(request, params){
     const searchvalue = params['searchvalue'];
     const result = advisors.filter(it => it.name.includes(searchvalue) || it.nr.includes(searchvalue));
@@ -29,5 +32,8 @@ onPost("/advisordetails", function(request, params){
     const resultData = advisorsWithDetails.filter(it => it.nr === advisorid);
     let result = advisorDetails(advisorid, resultData);
     return result;
-    return `<!--<div>detais</div>-->`;
+});
+onPost("/searchform", function(request, params){
+    let result = searchForm();
+    return result;
 });

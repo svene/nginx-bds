@@ -1,23 +1,31 @@
-// templates
-export function formTemplate(contact) {
-    return `<form hx-put="/contact/1" hx-target="this" hx-swap="outerHTML">
-  <div>
-    <label for="firstName">First Name</label>
-    <input autofocus type="text" id="firstName" name="firstName" value="${contact.firstName}">
-  </div>
-  <div class="form-group">
-    <label for="lastName">Last Name</label>
-    <input type="text" id="lastName" name="lastName" value="${contact.lastName}">
-  </div>
-  <div class="form-group">
-    <label for="email">Email Address</label>
-    <input type="email" id="email" name="email" value="${contact.email}">
-  </div>
-  <button class="btn" type="submit">Submit</button>
-  <button class="btn" hx-get="/contact/1">Cancel</button>
-</form>`
-}
+export function initial() {
+    return `
+  <main class="container mt-xx-large">
+    <bal-heading>Use Case: search, list, next-icon to details-list</bal-heading>
+    <bal-card>
+      <bal-card-content data-id="card-content">
+        <form>
+          <div class="field">
+            <label class="label">Name</label>
+            <div class="control">
+              <input class="input"
+                   name="searchvalue"
+                   hx-trigger="input changed delay:500ms, keyup[key=='Enter']"
+                   hx-post="/searchadvisor"
+                   hx-target="[data-id=search-result]"
+                   hx-swap="innerHtml"
+              >
+            </div>
+          </div>
+        </form>
 
+        <!-- Search Results: -->
+        <bal-list data-id="search-result"></bal-list>
+      </bal-card-content>
+    </bal-card>
+  </main>
+`
+}
 export function advisorResult(searchString, resultData) {
     let result = '';
     resultData.forEach(it => {
@@ -27,7 +35,7 @@ export function advisorResult(searchString, resultData) {
               hx-trigger="click"
               hx-post="/advisordetails"
               hx-vals='{"advisorid": "${it.nr}"}'
-              hx-target="#search-result"
+              hx-target="[data-id=card-content]"
               hx-swap="innerHTML"
               >
                 <bal-list-item-content>
@@ -38,6 +46,7 @@ export function advisorResult(searchString, resultData) {
                 </bal-list-item-icon>
             </bal-list-item>
         `;
+        return result;
     });
     return result;
 }
@@ -71,6 +80,28 @@ export function advisorDetails(advisorid, detailsData) {
   result += `
       </tbody>
       </table>
+      <bal-button hx-post="/start" hx-target="[data-id=app-container]">Back</bal-button>
     `;
     return result;
 }
+
+export function searchForm() {
+    return `
+<form>
+<div class="field">
+<label class="label">Name</label>
+<div class="control">
+<input class="input"
+   name="searchvalue"
+   hx-trigger="input changed delay:500ms, keyup[key=='Enter']"
+   hx-post="/searchadvisor"
+   hx-target="[data-id=search-result]"
+   hx-swap="innerHtml"
+>
+</div>
+</div>
+</form>
+   
+`
+}
+
